@@ -261,7 +261,7 @@ main #menu__container {
 }
 
 main #menu__container summary {
-  font-size: 23px;
+  font-size: 26px;
 }
 
 main #menu__container #menu__list {
@@ -304,10 +304,13 @@ main #menu__container #menu__list .menu__item {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 main #menu__container #menu__list .menu__item .menu__left {
-  width: auto;
+  width: 80%;
   padding: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -357,7 +360,7 @@ main #menu__container #menu__list .menu__item .menu__right {
   padding: 5px;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 @media screen and (min-width: 900px) {
@@ -369,13 +372,12 @@ main #menu__container #menu__list .menu__item .menu__right {
     padding: 1% 2%;
   }
   main #menu__container summary {
-    font-size: 27px;
+    font-size: 30px;
   }
   main #menu__container #menu__list {
     padding: 10px;
   }
   main #menu__container #menu__list .menu__item .menu__left {
-    width: auto;
     padding: 5px;
   }
   main #menu__container #menu__list .menu__item .menu__left .menu__title {
@@ -386,7 +388,7 @@ main #menu__container #menu__list .menu__item .menu__right {
     font-size: 19px;
   }
   main #menu__container #menu__list .menu__item .menu__left .btn {
-    padding: 1%;
+    padding: 2%;
     font-size: 19px;
     border-radius: 5px;
   }

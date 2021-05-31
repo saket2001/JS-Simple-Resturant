@@ -59,15 +59,19 @@ main {
                         border: none;
                         color: white;
                         background-color: red;
+
+
+                        &:hover {
+                            cursor: pointer;
+                            background-color: rgb(224, 68, 68);
+                        }
                     }
                 }
 
                 .menu__right {
                     width: auto;
                     padding: 5px;
-                    @include flex(column);
-                    align-items: flex-start;
-                    justify-content: flex-start;
+                    align-self: flex-start;
                     font-size: 28px;
                 }
             }
@@ -77,4 +81,50 @@ main {
 }
 
 // for big screens
-@media screen and (min-width:900px) {}
+@media screen and (min-width:900px) {
+    main {
+        h2 {
+            padding: 1% 3%;
+            font-size: 35px;
+        }
+
+        #menu__container {
+            padding: 1% 2%;
+
+            summary {
+                font-size: 27px;
+            }
+
+            #menu__list {
+                padding: 10px;
+
+                .menu__item {
+                    .menu__left {
+                        width: auto;
+                        padding: 5px;
+
+                        .menu__title {
+                            font-size: 26px;
+                        }
+
+                        .menu__description {
+                            width: 70%;
+                            font-size: 19px;
+                        }
+
+                        .btn {
+                            padding: 1%;
+                            font-size: 19px;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    .menu__right {
+                        font-size: 26px;
+                    }
+                }
+            }
+        }
+
+    }
+}

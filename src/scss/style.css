@@ -343,6 +343,7 @@ main #menu__container #menu__list .menu__item .menu__left .btn {
   outline: none;
   border: none;
   color: white;
+  border-radius: 5px;
   background-color: red;
 }
 

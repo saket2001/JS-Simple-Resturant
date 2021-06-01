@@ -1,3 +1,20 @@
+// functions
+@mixin flex($dir) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin gradient {
+    background: #000000;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4b4a4a, #000000);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2c2b2b, #000000);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,20 +27,12 @@ body {
     font-family: 'Nunito',
         sans-serif;
     scroll-behavior: smooth;
+    @include gradient;
 }
 
 // variables
-$headerBg:#3d1d18;
-$MenuBg:#481D16;
+$headerBg:#110f0e;
+$MenuBg:#110f0e;
 $font-light:#e8eff0;
 $font-dark:#e4d7d7;
 $font-more-dark:#bbb7b7;
-
-
-// functions
-@mixin flex($dir) {
-    display: flex;
-    flex-direction: $dir;
-    justify-content: center;
-    align-items: center;
-}

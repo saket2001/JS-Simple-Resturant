@@ -2,28 +2,21 @@
 main {
     width: 100%;
     height: auto;
+    padding-top: 5%;
     @include flex(column);
-    background-color: $MenuBg;
+    // background-color: $MenuBg;
+    @include gradient;
+
 
     h2 {
         width: 100%;
         padding: 2% 3%;
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         font-family: monospace;
         font-weight: bold;
         color: $font-light;
     }
-
-    // h2::before,
-    // h2::after {
-    //     content: "🟡";
-    //     position: relative;
-    //     top: -10px;
-    //     padding: 0.4rem;
-    //     font-size: 1rem;
-    //     border: none;
-    // }
 
     #menu__container {
         width: 100%;
@@ -32,74 +25,81 @@ main {
         @include flex(column);
         align-items: flex-start;
 
-        summary {
-            color: $font-light;
-            font-weight: 900;
-            font-size: 1.4rem;
-            padding: 1% 4%;
-            text-transform: uppercase;
-        }
-
-        #menu__list {
+        details {
             width: 100%;
-            height: 100%;
-            @include flex(column);
-            align-items: flex-start;
-            padding: 5px;
 
-            .menu__item {
+            summary {
+                color: $font-light;
+                font-weight: 900;
+                font-size: 1.4rem;
+                padding: 1%;
+                text-transform: uppercase;
+            }
+
+            #menu__list {
                 width: 100%;
                 height: 100%;
-                padding: 2%;
-                margin: 1% 0;
-                border-radius: 8px;
-                @include flex(row);
-                justify-content: flex-start;
+                @include flex(column);
+                align-items: flex-start;
+                padding: 5px;
 
-                .menu__left {
-                    width: 75%;
-                    padding: 5px;
-                    @include flex(column);
-                    align-items: flex-start;
+                .menu__item {
+                    width: 100%;
+                    height: 100%;
+                    padding: 1% 2%;
+                    margin: 1% 0;
+                    border-radius: 8px;
+                    @include flex(row);
+                    justify-content: flex-start;
 
-                    .menu__title {
-                        font-size: 1.5rem;
-                        color: $font-dark;
-                    }
+                    .menu__left {
+                        width: 75%;
+                        padding-right: 5px;
+                        @include flex(column);
+                        align-items: flex-start;
 
-                    .menu__description {
-                        font-size: 0.9rem;
-                        color: $font-more-dark;
-                    }
+                        .menu__title {
+                            font-size: 1.3rem;
+                            color: $font-dark;
+                            font-weight: bold;
+                        }
 
-                    .btn {
-                        padding: 2% 3%;
-                        margin: 0.3rem 0;
-                        font-size: 1rem;
-                        outline: none;
-                        border: none;
-                        color: $font-light;
-                        border-radius: 5px;
-                        background-color: rgb(197, 42, 42);
+                        .menu__description {
+                            font-size: 0.8rem;
+                            color: $font-more-dark;
+                            font-weight: lighter;
+                        }
 
-                        &:hover {
-                            cursor: pointer;
-                            background-color: rgb(155, 7, 7);
+                        .btn {
+                            padding: 2% 3%;
+                            margin: 0.3rem 0;
+                            font-size: 1rem;
+                            outline: none;
+                            border: none;
+                            color: $font-light;
+                            border-radius: 5px;
+                            background-color: rgb(197, 42, 42);
+
+                            &:hover {
+                                cursor: pointer;
+                                background-color: rgb(155, 7, 7);
+                            }
                         }
                     }
-                }
 
-                .menu__right {
-                    width: auto;
-                    padding: 5px;
-                    align-self: flex-start;
-                    font-size: 1rem;
-                    color: #e4d7d7;
+                    .menu__right {
+                        width: auto;
+                        padding: 5px;
+                        align-self: flex-start;
+                        font-size: 1rem;
+                        font-weight: bolder;
+                        color: #e4d7d7;
 
-                }
+                    }
 
-                &:hover {
-                    background-color: #4e211a;
+                    &:hover {
+                        background-color: #302d2cc4;
+                    }
                 }
             }
         }
@@ -110,50 +110,60 @@ main {
 // for big screens
 @media screen and (min-width:900px) {
     main {
+        padding-top: 1%;
+
         h2 {
             padding: 1% 3%;
             font-size: 3.5rem;
         }
 
         #menu__container {
+            align-items: center;
             padding: 1% 2%;
 
-            summary {
-                padding: 0;
-                font-size: 1.8rem;
-            }
+            details {
 
-            #menu__list {
-                padding: 10px;
+                summary {
+                    padding: 0;
+                    font-size: 1.8rem;
+                }
 
-                .menu__item {
-                    .menu__left {
-                        padding: 5px;
+                #menu__list {
+                    padding: 10px;
 
-                        .menu__title {
-                            font-size: 1.3rem;
+                    .menu__item {
+                        width: 80%;
+
+                        .menu__left {
+                            padding: 5px;
+
+                            .menu__title {
+                                font-size: 1.3rem;
+                            }
+
+                            .menu__description {
+                                width: 70%;
+                                font-size: 0.9rem;
+                            }
+
+                            .btn {
+                                margin: 1% 0;
+                                padding: 1% 2%;
+                                font-size: 1rem;
+                                border-radius: 5px;
+                            }
                         }
 
-                        .menu__description {
-                            width: 70%;
-                            font-size: 0.9rem;
+                        .menu__right {
+                            font-size: 26px;
                         }
 
-                        .btn {
-                            margin: 1% 0;
-                            padding: 1% 2%;
-                            font-size: 1rem;
-                            border-radius: 5px;
-                        }
-                    }
-
-                    .menu__right {
-                        font-size: 26px;
                     }
 
                 }
-
             }
+
+
         }
 
     }

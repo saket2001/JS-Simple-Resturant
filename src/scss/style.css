@@ -10,6 +10,12 @@ body {
   font-size: 20px;
   font-family: 'Nunito', sans-serif;
   scroll-behavior: smooth;
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
+  background: linear-gradient(to left, #2c2b2b, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 * {
@@ -24,6 +30,12 @@ body {
   font-size: 20px;
   font-family: 'Nunito', sans-serif;
   scroll-behavior: smooth;
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
+  background: linear-gradient(to left, #2c2b2b, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .overlay {
@@ -55,8 +67,14 @@ header {
       -ms-flex-pack: left;
           justify-content: left;
   padding: 1%;
-  background-color: #3d1d18;
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
+  background: linear-gradient(to left, #2c2b2b, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #e8eff0;
+  border: none;
 }
 
 header nav {
@@ -162,6 +180,7 @@ header #company__info__container .address {
   header {
     width: 100%;
     padding: 1%;
+    border: none;
   }
   header nav {
     width: 100%;
@@ -223,6 +242,7 @@ header #company__info__container .address {
 main {
   width: 100%;
   height: auto;
+  padding-top: 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -236,14 +256,19 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #481D16;
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
+  background: linear-gradient(to left, #2c2b2b, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 main h2 {
   width: 100%;
   padding: 2% 3%;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-family: monospace;
   font-weight: bold;
   color: #e8eff0;
@@ -271,15 +296,19 @@ main #menu__container {
           align-items: flex-start;
 }
 
-main #menu__container summary {
+main #menu__container details {
+  width: 100%;
+}
+
+main #menu__container details summary {
   color: #e8eff0;
   font-weight: 900;
   font-size: 1.4rem;
-  padding: 1% 4%;
+  padding: 1%;
   text-transform: uppercase;
 }
 
-main #menu__container #menu__list {
+main #menu__container details #menu__list {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -301,10 +330,10 @@ main #menu__container #menu__list {
   padding: 5px;
 }
 
-main #menu__container #menu__list .menu__item {
+main #menu__container details #menu__list .menu__item {
   width: 100%;
   height: 100%;
-  padding: 2%;
+  padding: 1% 2%;
   margin: 1% 0;
   border-radius: 8px;
   display: -webkit-box;
@@ -325,9 +354,9 @@ main #menu__container #menu__list .menu__item {
           justify-content: flex-start;
 }
 
-main #menu__container #menu__list .menu__item .menu__left {
+main #menu__container details #menu__list .menu__item .menu__left {
   width: 75%;
-  padding: 5px;
+  padding-right: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -346,17 +375,19 @@ main #menu__container #menu__list .menu__item .menu__left {
           align-items: flex-start;
 }
 
-main #menu__container #menu__list .menu__item .menu__left .menu__title {
-  font-size: 1.5rem;
+main #menu__container details #menu__list .menu__item .menu__left .menu__title {
+  font-size: 1.3rem;
   color: #e4d7d7;
+  font-weight: bold;
 }
 
-main #menu__container #menu__list .menu__item .menu__left .menu__description {
-  font-size: 0.9rem;
+main #menu__container details #menu__list .menu__item .menu__left .menu__description {
+  font-size: 0.8rem;
   color: #bbb7b7;
+  font-weight: lighter;
 }
 
-main #menu__container #menu__list .menu__item .menu__left .btn {
+main #menu__container details #menu__list .menu__item .menu__left .btn {
   padding: 2% 3%;
   margin: 0.3rem 0;
   font-size: 1rem;
@@ -367,56 +398,66 @@ main #menu__container #menu__list .menu__item .menu__left .btn {
   background-color: #c52a2a;
 }
 
-main #menu__container #menu__list .menu__item .menu__left .btn:hover {
+main #menu__container details #menu__list .menu__item .menu__left .btn:hover {
   cursor: pointer;
   background-color: #9b0707;
 }
 
-main #menu__container #menu__list .menu__item .menu__right {
+main #menu__container details #menu__list .menu__item .menu__right {
   width: auto;
   padding: 5px;
   -ms-flex-item-align: start;
       align-self: flex-start;
   font-size: 1rem;
+  font-weight: bolder;
   color: #e4d7d7;
 }
 
-main #menu__container #menu__list .menu__item:hover {
-  background-color: #4e211a;
+main #menu__container details #menu__list .menu__item:hover {
+  background-color: #302d2cc4;
 }
 
 @media screen and (min-width: 900px) {
+  main {
+    padding-top: 1%;
+  }
   main h2 {
     padding: 1% 3%;
     font-size: 3.5rem;
   }
   main #menu__container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 1% 2%;
   }
-  main #menu__container summary {
+  main #menu__container details summary {
     padding: 0;
     font-size: 1.8rem;
   }
-  main #menu__container #menu__list {
+  main #menu__container details #menu__list {
     padding: 10px;
   }
-  main #menu__container #menu__list .menu__item .menu__left {
+  main #menu__container details #menu__list .menu__item {
+    width: 80%;
+  }
+  main #menu__container details #menu__list .menu__item .menu__left {
     padding: 5px;
   }
-  main #menu__container #menu__list .menu__item .menu__left .menu__title {
+  main #menu__container details #menu__list .menu__item .menu__left .menu__title {
     font-size: 1.3rem;
   }
-  main #menu__container #menu__list .menu__item .menu__left .menu__description {
+  main #menu__container details #menu__list .menu__item .menu__left .menu__description {
     width: 70%;
     font-size: 0.9rem;
   }
-  main #menu__container #menu__list .menu__item .menu__left .btn {
+  main #menu__container details #menu__list .menu__item .menu__left .btn {
     margin: 1% 0;
     padding: 1% 2%;
     font-size: 1rem;
     border-radius: 5px;
   }
-  main #menu__container #menu__list .menu__item .menu__right {
+  main #menu__container details #menu__list .menu__item .menu__right {
     font-size: 26px;
   }
 }

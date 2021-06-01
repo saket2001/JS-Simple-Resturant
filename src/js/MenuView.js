@@ -20,6 +20,7 @@ class MenuView {
   _renderMenu() {
     this._data.forEach((row) => {
       const markup = `
+            <details open>
                 <summary>
                    ${row.section_name}
                 </summary>
@@ -50,7 +51,9 @@ class MenuView {
                   `;
                   })
                   .join("")}
-                </div>  
+                </div>
+           </details>
+           </br>
         `;
 
       this._parentElement.insertAdjacentHTML("beforeend", markup);

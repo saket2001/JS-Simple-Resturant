@@ -12,7 +12,5 @@ const getData = async function () {
   }
 };
 
-// render menu data
-
 ////////////////////////////////
-// window.addEventListener("load", getData);
+window.addEventListener("load", getData);

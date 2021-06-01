@@ -7,8 +7,9 @@
 
 html,
 body {
-  font-size: 100%;
+  font-size: 20px;
   font-family: 'Nunito', sans-serif;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -20,8 +21,9 @@ body {
 
 html,
 body {
-  font-size: 100%;
+  font-size: 20px;
   font-family: 'Nunito', sans-serif;
+  scroll-behavior: smooth;
 }
 
 .overlay {
@@ -53,8 +55,8 @@ header {
       -ms-flex-pack: left;
           justify-content: left;
   padding: 1%;
-  background-color: #1714b9;
-  color: white;
+  background-color: #3d1d18;
+  color: #e8eff0;
 }
 
 header nav {
@@ -84,14 +86,15 @@ header nav .hidden {
 }
 
 header nav #company__name {
+  width: auto;
   font-size: 28px;
-  padding: 0 2%;
+  padding: 0 1%;
 }
 
 header nav #cart__container {
   cursor: pointer;
-  text-align: right;
-  width: 50%;
+  text-align: center;
+  width: 20%;
   border-radius: 10px;
   padding: 5px 2%;
   -webkit-transition: all 1s ease-in;
@@ -100,7 +103,7 @@ header nav #cart__container {
 
 header nav #cart__container img {
   width: 30px;
-  fill: white;
+  fill: #e8eff0;
 }
 
 header nav #cart__div {
@@ -148,7 +151,11 @@ header #company__info__container .name {
 
 header #company__info__container .dishes, header #company__info__container .address {
   font-weight: 400;
-  color: #e2dede;
+  color: #e4d7d7;
+}
+
+header #company__info__container .address {
+  padding-bottom: 2%;
 }
 
 @media screen and (min-width: 900px) {
@@ -229,13 +236,17 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #481D16;
 }
 
 main h2 {
   width: 100%;
   padding: 2% 3%;
-  font-size: 28px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: monospace;
   font-weight: bold;
+  color: #e8eff0;
 }
 
 main #menu__container {
@@ -261,7 +272,11 @@ main #menu__container {
 }
 
 main #menu__container summary {
-  font-size: 26px;
+  color: #e8eff0;
+  font-weight: 900;
+  font-size: 1.4rem;
+  padding: 1% 4%;
+  text-transform: uppercase;
 }
 
 main #menu__container #menu__list {
@@ -284,13 +299,14 @@ main #menu__container #menu__list {
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 5px;
-  color: rgba(7, 4, 4, 0.904);
 }
 
 main #menu__container #menu__list .menu__item {
   width: 100%;
   height: 100%;
-  padding: 1% 2%;
+  padding: 2%;
+  margin: 1% 0;
+  border-radius: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -310,7 +326,7 @@ main #menu__container #menu__list .menu__item {
 }
 
 main #menu__container #menu__list .menu__item .menu__left {
-  width: 80%;
+  width: 75%;
   padding: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -331,28 +347,29 @@ main #menu__container #menu__list .menu__item .menu__left {
 }
 
 main #menu__container #menu__list .menu__item .menu__left .menu__title {
-  font-size: 24px;
+  font-size: 1.5rem;
+  color: #e4d7d7;
 }
 
 main #menu__container #menu__list .menu__item .menu__left .menu__description {
-  font-size: 16px;
-  color: #463f3f;
+  font-size: 0.9rem;
+  color: #bbb7b7;
 }
 
 main #menu__container #menu__list .menu__item .menu__left .btn {
   padding: 2% 3%;
-  margin: 1% 0;
-  font-size: 18px;
+  margin: 0.3rem 0;
+  font-size: 1rem;
   outline: none;
   border: none;
-  color: white;
+  color: #e8eff0;
   border-radius: 5px;
-  background-color: red;
+  background-color: #c52a2a;
 }
 
 main #menu__container #menu__list .menu__item .menu__left .btn:hover {
   cursor: pointer;
-  background-color: #e04444;
+  background-color: #9b0707;
 }
 
 main #menu__container #menu__list .menu__item .menu__right {
@@ -360,19 +377,25 @@ main #menu__container #menu__list .menu__item .menu__right {
   padding: 5px;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  font-size: 24px;
+  font-size: 1rem;
+  color: #e4d7d7;
+}
+
+main #menu__container #menu__list .menu__item:hover {
+  background-color: #4e211a;
 }
 
 @media screen and (min-width: 900px) {
   main h2 {
     padding: 1% 3%;
-    font-size: 35px;
+    font-size: 3.5rem;
   }
   main #menu__container {
     padding: 1% 2%;
   }
   main #menu__container summary {
-    font-size: 30px;
+    padding: 0;
+    font-size: 1.8rem;
   }
   main #menu__container #menu__list {
     padding: 10px;
@@ -381,15 +404,16 @@ main #menu__container #menu__list .menu__item .menu__right {
     padding: 5px;
   }
   main #menu__container #menu__list .menu__item .menu__left .menu__title {
-    font-size: 26px;
+    font-size: 1.3rem;
   }
   main #menu__container #menu__list .menu__item .menu__left .menu__description {
     width: 70%;
-    font-size: 19px;
+    font-size: 0.9rem;
   }
   main #menu__container #menu__list .menu__item .menu__left .btn {
-    padding: 2%;
-    font-size: 19px;
+    margin: 1% 0;
+    padding: 1% 2%;
+    font-size: 1rem;
     border-radius: 5px;
   }
   main #menu__container #menu__list .menu__item .menu__right {

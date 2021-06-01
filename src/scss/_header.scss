@@ -18,8 +18,8 @@ header {
     @include flex(column);
     justify-content: left;
     padding: 1%;
-    background-color: #1714b9;
-    color: white;
+    background-color: $headerBg;
+    color: $font-light;
 
     nav {
         width: 100%;
@@ -33,21 +33,22 @@ header {
         }
 
         #company__name {
+            width: auto;
             font-size: 28px;
-            padding: 0 2%;
+            padding: 0 1%;
         }
 
         #cart__container {
             cursor: pointer;
-            text-align: right;
-            width: 50%;
+            text-align: center;
+            width: 20%;
             border-radius: 10px;
             padding: 5px 2%;
             transition: all 1s ease-in;
 
             img {
                 width: 30px;
-                fill: white;
+                fill: $font-light;
             }
         }
 
@@ -84,11 +85,12 @@ header {
 
         .dishes {
             font-weight: 400;
-            color: rgb(226, 222, 222);
+            color: $font-dark;
         }
 
         .address {
             @extend .dishes;
+            padding-bottom: 2%;
         }
 
 

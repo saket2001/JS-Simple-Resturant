@@ -1,30 +1,25 @@
-const menuContainer = document.querySelector("#menu__container");
+class MenuView {
+  _parentElement = document.querySelector("#menu__container");
+  _errorMsg = `Oops! Unable to get menu right now. Try again later`;
+  _data;
 
-////////////////////////////////////
-
-const getData = async function () {
-  try {
-    const res = await fetch(
-      `https://cors-anywhere.herokuapp.com/https://api.documenu.com/v2/restaurant/4072702673999819?key=a748d3cae6d1fa9976cc8a1e701e72d9`
-    );
-
-    if (!res) return;
-
-    const data = await res.json();
-
-    // console.log(data.result.menus[0].menu_sections);
-    await renderMenu(data.result.menus[0].menu_sections);
-  } catch (err) {
-    console.error(err);
+  _render(data) {
+    this._data = data;
+    this._clearParent;
+    this._renderMenu();
   }
-};
+  _clearParent() {
+    this._parentElement.innerHTML = "";
+  }
 
-// render menu data
-const renderMenu = function (data) {
-  data.forEach((row) => {
-    // console.log(row.menu_items);
-    const markup = `
-            <details>
+  _renderError() {
+    this._clearParent;
+    alert(this._errorMsg);
+  }
+
+  _renderMenu() {
+    this._data.forEach((row) => {
+      const markup = `
                 <summary>
                    ${row.section_name}
                 </summary>
@@ -49,19 +44,18 @@ const renderMenu = function (data) {
                             </button>
                         </div>
                         <div class="menu__right">
-                            ${item.price}$
+                            $ ${item.price}
                         </div>
                     </div>
                   `;
                   })
                   .join("")}
                 </div>  
-            </details> 
-    `;
+        `;
 
-    menuContainer.insertAdjacentHTML("beforeend", markup);
-  });
-};
+      this._parentElement.insertAdjacentHTML("beforeend", markup);
+    });
+  }
+}
 
-////////////////////////////////
-window.addEventListener("load", getData);
+export default new MenuView();

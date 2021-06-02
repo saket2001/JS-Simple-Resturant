@@ -4,9 +4,9 @@ import MenuView from "./MenuView.js";
 
 const getData = async function () {
   try {
-    await model.loadData();
-    // console.log(model.state.result);
-    MenuView._render(model.state.result?.result.menus[0].menu_sections);
+    // await model.loadData();
+    MenuView._render(model.state.result?.menus[0].menu_sections);
+    MenuView._renderOtherData(model.state.result);
   } catch (err) {
     console.error(err);
   }

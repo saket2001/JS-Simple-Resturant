@@ -1,10 +1,26 @@
 class MenuView {
   _parentElement = document.querySelector("#menu__container");
+  _hotelName = document.querySelector(".name");
+  _hotelItems = document.querySelector(".dishes");
+  _hotelAddress = document.querySelector(".address");
+  _hotelTiming = document.querySelector(".timing");
   _errorMsg = `Oops! Unable to get menu right now. Try again later`;
   _data;
 
   _render(data) {
     this._data = data;
+    // render menu
+    this._clearParent;
+    this._renderMenu();
+  }
+  _renderOtherData(data) {
+    // render other details
+    this._hotelName.innerHTML = data.restaurant_name;
+    this._hotelItems.innerHTML = data.cuisines;
+    this._hotelAddress.innerHTML = data.address;
+    this._hotelTiming.innerHTML = data.hours;
+
+    // render menu
     this._clearParent;
     this._renderMenu();
   }
@@ -13,6 +29,7 @@ class MenuView {
   }
 
   _renderError() {
+    // render menu
     this._clearParent;
     alert(this._errorMsg);
   }
@@ -28,7 +45,7 @@ class MenuView {
                 ${row.menu_items
                   .map((item) => {
                     return `
-                    <div class="menu__item">
+                    <div class="menu__item" data-id="${item.id}">
                         <div class="menu__left">
                             <div class="menu__title">
                                 ${item.name}
@@ -45,7 +62,7 @@ class MenuView {
                             </button>
                         </div>
                         <div class="menu__right">
-                            $ ${item.price}
+                            ${item.price}
                         </div>
                     </div>
                   `;

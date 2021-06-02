@@ -432,10 +432,14 @@ main #menu__container details #menu__list .menu__item:hover {
     padding: 1% 2%;
   }
   main #menu__container details summary {
+    margin-left: 10%;
     padding: 0;
     font-size: 1.8rem;
   }
   main #menu__container details #menu__list {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 10px;
   }
   main #menu__container details #menu__list .menu__item {

@@ -2,17 +2,6 @@
 
 // for mobiles
 
-.overlay {
-    opacity: 0.4;
-    display: none;
-}
-
-#cart__div {
-    width: 100%;
-    height: 100vh;
-}
-
-
 header {
     width: 100%;
     @include flex(column);
@@ -30,17 +19,13 @@ header {
         margin: 1% 0;
         margin-bottom: 2%;
 
-        .hidden {
-            display: none;
-        }
-
-        #company__name {
+        .company__name {
             width: auto;
             font-size: 28px;
             padding: 0 1%;
         }
 
-        #cart__container {
+        .cart__container {
             cursor: pointer;
             text-align: center;
             width: 20%;
@@ -52,18 +37,6 @@ header {
                 width: 30px;
                 fill: $font-light;
             }
-        }
-
-        #cart__div {
-            width: 100vw;
-            height: 100vh;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 1;
-            overflow: auto;
-            background-color: rgb(255, 255, 255);
         }
 
     }

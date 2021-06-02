@@ -10,23 +10,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/scss/style.css">
-    <script defer type="module" src="/src/js/controller.js"></script>
+    <script defer type="module" src="src/js/controller.js"></script>
 </head>
 
 <body>
+    <div class="cart__div hidden">
+        <nav>
+            <!-- back btn -->
+            <button class="btn" id="backBtn">
+                ←
+            </button>
+            <div class="title">
+                Your Cart
+            </div>
+        </nav>
+        <!-- buy btn -->
+        <button class="btn" id="buyBtn">
+            Buy [1 item]
+        </button>
+        <!-- cart items -->
+        <div id="cart_list">
+            <div class="cart_item">
+                <div class="item_title">Hot Cafe Coffee</div>
+                <div class="item_description">No description</div>
+                <div class="item_price">190</div>
+            </div>
+        </div>
+    </div>
     <!-- nav -->
     <header>
         <nav>
-            <div id="company__name">
+            <div class="company__name">
                 Order Eat Repeat
             </div>
-            <div id="cart__container">
+            <div class="cart__container">
                 <img style="filter: invert();" class="cart__btn" src="./src/images and icons/shopping-cart.svg" alt="">
-
             </div>
-            <!-- <div id="cart__div">
-                Your cart is
-            </div> -->
             <!-- <div id="cart__container__upper-box">2</div> -->
         </nav>
         <div id="company__info__container">
@@ -44,6 +63,7 @@
             </div>
         </div>
     </header>
+
     <main>
         <h2>MENU</h2>
         <div id="menu__container">
@@ -94,6 +114,7 @@
         </div>
         <!-- -->
     </main>
+
 </body>
 
 </html>

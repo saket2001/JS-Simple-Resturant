@@ -1,51 +1,211 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-html,
-body {
-  font-size: 20px;
-  font-family: 'Nunito', sans-serif;
-  scroll-behavior: smooth;
-  background: #000000;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
-  background: linear-gradient(to left, #2c2b2b, #000000);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-html,
-body {
-  font-size: 20px;
-  font-family: 'Nunito', sans-serif;
-  scroll-behavior: smooth;
-  background: #000000;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
-  background: linear-gradient(to left, #2c2b2b, #000000);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.overlay {
-  opacity: 0.4;
+.hidden {
   display: none;
 }
 
-#cart__div {
-  width: 100%;
+.hide {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  scroll-behavior: smooth;
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
+  background: linear-gradient(to left, #2c2b2b, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.cart__div {
+  width: 100vw;
   height: 100vh;
+  overflow: auto;
+  background-color: #e8eff0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.cart__div nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 1%;
+  padding: 1% 2%;
+}
+
+.cart__div nav .title {
+  width: auto;
+  font-size: 28px;
+  padding: 0 1%;
+}
+
+.cart__div nav #backBtn {
+  font-size: 1rem;
+  color: #e8eff0;
+  margin-right: 5%;
+  background-color: #c52a2a;
+}
+
+.cart__div nav #backBtn:hover {
+  cursor: pointer;
+  background-color: #9b0707;
+}
+
+.cart__div #buyBtn {
+  width: 90%;
+  margin: 2%;
+  padding: 2%;
+  font-size: 1rem;
+  color: #e8eff0;
+  background-color: #c52a2a;
+}
+
+.cart__div #buyBtn:hover {
+  cursor: pointer;
+  background-color: #9b0707;
+}
+
+.cart__div #cart_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  margin: 2% 0;
+  padding: 2%;
+}
+
+.cart__div #cart_list .cart_item {
+  width: 95%;
+  padding: 2%;
+  margin: 1% 2%;
+  background-color: rgba(255, 255, 255, 0.699);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 8px;
+}
+
+.cart__div #cart_list .cart_item .item_title {
+  font-size: 1.3rem;
+  color: #201212;
+  font-weight: bold;
+  padding: 3px 8px;
+}
+
+.cart__div #cart_list .cart_item .item_description {
+  font-size: 0.8rem;
+  color: #2e2525;
+  font-weight: lighter;
+  padding: 1px 8px;
+}
+
+.cart__div #cart_list .cart_item .item_price {
+  font-size: 1rem;
+  color: #2e2525;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+
+.btn {
+  padding: 2% 3%;
+  margin: 0.3rem 0;
+  font-size: 0.7rem;
+  outline: none;
+  border: none;
+  color: #e8eff0;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  scroll-behavior: smooth;
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
+  background: linear-gradient(to left, #2c2b2b, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 header {
@@ -99,17 +259,13 @@ header nav {
   margin-bottom: 2%;
 }
 
-header nav .hidden {
-  display: none;
-}
-
-header nav #company__name {
+header nav .company__name {
   width: auto;
   font-size: 28px;
   padding: 0 1%;
 }
 
-header nav #cart__container {
+header nav .cart__container {
   cursor: pointer;
   text-align: center;
   width: 20%;
@@ -119,22 +275,9 @@ header nav #cart__container {
   transition: all 1s ease-in;
 }
 
-header nav #cart__container img {
+header nav .cart__container img {
   width: 30px;
   fill: #e8eff0;
-}
-
-header nav #cart__div {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  opacity: 1;
-  overflow: auto;
-  background-color: white;
 }
 
 header #company__info__container {

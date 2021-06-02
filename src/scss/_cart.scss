@@ -1,0 +1,99 @@
+.cart__div {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: $font-light;
+    @include flex(column);
+    justify-content: flex-start;
+
+    nav {
+        width: 100%;
+        @include flex(row);
+        justify-content: flex-start;
+        margin: 1%;
+        padding: 1% 2%;
+
+        .title {
+            width: auto;
+            font-size: 28px;
+            padding: 0 1%;
+        }
+
+        #backBtn {
+            font-size: 1rem;
+            color: $font-light;
+            margin-right: 5%;
+            background-color: rgb(197, 42, 42);
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(155, 7, 7);
+            }
+        }
+    }
+
+    #buyBtn {
+        width: 90%;
+        margin: 2%;
+        padding: 2%;
+        font-size: 1rem;
+        color: $font-light;
+        background-color: rgb(197, 42, 42);
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(155, 7, 7);
+        }
+    }
+
+    #cart_list {
+        @include flex(column);
+        align-items: flex-start;
+        width: 100%;
+        margin: 2% 0;
+        padding: 2%;
+
+        .cart_item {
+            width: 95%;
+            padding: 2%;
+            margin: 1% 2%;
+            background-color: rgba(255, 255, 255, 0.699);
+            @include flex(column);
+            align-items: flex-start;
+            border-radius: 8px;
+
+            .item_title {
+                font-size: 1.3rem;
+                color: rgb(32, 18, 18);
+                font-weight: bold;
+                padding: 3px 8px;
+            }
+
+            .item_description {
+                font-size: 0.8rem;
+                color: rgb(46, 37, 37);
+                font-weight: lighter;
+                padding: 1px 8px;
+
+            }
+
+            .item_price {
+                font-size: 1rem;
+                color: rgb(46, 37, 37);
+                font-weight: bold;
+                padding: 5px 8px;
+
+            }
+        }
+    }
+}
+
+.btn {
+    padding: 2% 3%;
+    margin: 0.3rem 0;
+    font-size: 0.7rem;
+    outline: none;
+    border: none;
+    color: $font-light;
+    border-radius: 8px;
+}

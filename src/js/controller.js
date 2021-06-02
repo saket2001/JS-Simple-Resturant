@@ -18,7 +18,15 @@ const controlCart = function () {
     // render cart div
     CartView._render();
     // render cart items
+    CartView._loadCart();
     // do cart calculations
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const controlAddToCart = function () {
+  try {
   } catch (err) {
     console.error(err);
   }
@@ -35,3 +43,35 @@ document
 document.querySelector("#backBtn").addEventListener("click", function () {
   CartView._unRenderCart();
 });
+
+//
+let addToCartBtn;
+setTimeout(function () {
+  // converting html collection to array
+  addToCartBtn = Array.from(document.querySelectorAll(".addToCartBtn"));
+
+  // adding event to all buttons
+  addToCartBtn.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      // getting parent
+      const parent = e.target.closest(".menu__item");
+
+      // creating cart obj
+      const cartObj = {
+        name: parent.querySelector(".menu__left").querySelector(".menu__title")
+          .innerHTML,
+        description: parent
+          .querySelector(".menu__left")
+          .querySelector(".menu__description").innerHTML,
+        price: parent.querySelector(".menu__right").innerHTML,
+        quantity: 1,
+      };
+
+      // pushing to state model
+      model.state.cart.push(cartObj);
+      console.log(model.state.cart);
+      // sending to render
+      CartView._renderCartItems(model.state.cart);
+    });
+  });
+}, 2000);

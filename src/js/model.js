@@ -1,7 +1,7 @@
 // data
 export const state = {
   result: {
-    restaurant_name: "The Great Indian Darbar ",
+    restaurant_name: "Beach Side Coffee",
     restaurant_phone: "(212) 228-2333",
     hours: "Daily: 11am-12pm",
     price_range: "$$",
@@ -228,8 +228,9 @@ export const state = {
         ],
       },
     ],
-    last_updated: "2020-10-01T15:13:42.654Z",
+    last_updated: "02/06/2021 12:00:01 pm",
   },
+  cart: [],
 };
 
 /////////////////////////

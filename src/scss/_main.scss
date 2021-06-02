@@ -4,7 +4,6 @@ main {
     height: auto;
     padding-top: 5%;
     @include flex(column);
-    // background-color: $MenuBg;
     @include gradient;
 
 
@@ -36,7 +35,7 @@ main {
                 text-transform: uppercase;
             }
 
-            #menu__list {
+            .menu__list {
                 width: 100%;
                 height: 100%;
                 @include flex(column);
@@ -129,7 +128,7 @@ main {
                     font-size: 1.8rem;
                 }
 
-                #menu__list {
+                .menu__list {
                     align-items: center;
                     padding: 10px;
 

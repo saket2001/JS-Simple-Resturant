@@ -60,10 +60,12 @@
         }
 
         .cart_item {
+            box-shadow: 6px 6px 12px #e5dddd,
+                -6px -6px 12px #f9efef;
             width: 95%;
             padding: 2%;
             margin: 1% 2%;
-            background-color: rgba(255, 255, 255, 0.699);
+            background-color: $font-light;
             @include flex(column);
             align-items: flex-start;
             border-radius: 8px;
@@ -112,8 +114,10 @@
                 #increaseBtn {
                     @include flex(column);
                     font-size: 1rem;
+                    color: $font-light;
 
                     &:hover {
+                        cursor: pointer;
                         background-color: gainsboro;
                     }
                 }
@@ -122,10 +126,14 @@
             #cancelBtn {
                 @include flex(column);
                 padding: 2%;
+                color: $font-light;
+
                 font-size: 1rem;
+                background-color: rgb(197, 42, 42);
 
                 &:hover {
-                    background-color: gainsboro;
+                    cursor: pointer;
+                    background-color: rgb(155, 7, 7);
                 }
             }
 

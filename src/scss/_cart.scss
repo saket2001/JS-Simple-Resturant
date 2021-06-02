@@ -20,6 +20,7 @@
         }
 
         #backBtn {
+            @include flex(row);
             font-size: 1rem;
             color: $font-light;
             margin-right: 5%;
@@ -50,8 +51,13 @@
         @include flex(column);
         align-items: flex-start;
         width: 100%;
-        margin: 2% 0;
+        margin: 5% 0;
         padding: 2%;
+
+        .emptyMsg_block {
+            width: inherit;
+            @include flex(row);
+        }
 
         .cart_item {
             width: 95%;
@@ -84,7 +90,47 @@
                 padding: 5px 8px;
 
             }
+
+            .item_quantity_box {
+                width: inherit;
+                @include flex(row);
+                justify-content: flex-start;
+
+                input[type='text'] {
+                    width: 40px;
+                    text-align: center;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    padding: 5px 1%;
+                    margin: 0 2%;
+                    border-radius: 8px;
+                    border: none;
+                    outline: none;
+                }
+
+                #decreaseBtn,
+                #increaseBtn {
+                    @include flex(column);
+                    font-size: 1rem;
+
+                    &:hover {
+                        background-color: gainsboro;
+                    }
+                }
+            }
+
+            #cancelBtn {
+                @include flex(column);
+                padding: 2%;
+                font-size: 1rem;
+
+                &:hover {
+                    background-color: gainsboro;
+                }
+            }
+
         }
+
     }
 }
 
@@ -94,6 +140,70 @@
     font-size: 0.7rem;
     outline: none;
     border: none;
-    color: $font-light;
+    color: rgb(26, 20, 20);
     border-radius: 8px;
+}
+
+@media screen and(min-width:900px) {
+    .cart__div {
+
+        nav {
+            .title {
+                width: auto;
+                font-size: 1.5rem;
+                padding: 0 1%;
+            }
+
+            #backBtn {
+                font-size: 1rem;
+                padding: 1%;
+            }
+        }
+
+        #buyBtn {
+            width: 60%;
+            padding: 1% 2%;
+            font-size: 1rem;
+        }
+
+        #cart_list {
+            margin: 3% 0;
+            align-items: center;
+
+            .emptyMsg_block {
+                font-size: 1.3rem;
+            }
+
+            .cart_item {
+                width: 65%;
+
+                .item_title {
+                    font-size: 1.4rem;
+                }
+
+                .item_description {
+                    font-size: 1.1rem;
+                }
+
+                .item_price {
+                    font-size: 1.2rem;
+                }
+
+                .item_quantity_box {
+
+                    input[type='text'] {
+                        width: 50px;
+                        padding: 7px 1%;
+                    }
+                }
+
+                #cancelBtn {
+                    padding: 1% 3%;
+                }
+
+            }
+
+        }
+    }
+
 }

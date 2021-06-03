@@ -8,7 +8,7 @@ export const state = {
     restaurant_id: 4072702673999819,
     cuisines: ["Coffee", "Sandwhich", "Pastry", "indian food"],
     address:
-      "1st Floor, Opposite K Star mall,Chembur station road,chembur(e),Mumbai",
+      "1st Floor, Opposite K Star mall, chembur station road, chembur(e),,mumbai",
     menus: [
       {
         menu_name: "Main",

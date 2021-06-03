@@ -3,17 +3,27 @@ class CartView {
   _childElement = this._parentElement.querySelector("#cart_list");
   _data;
 
+  _init(data) {
+    this._data = data;
+    console.log(this._data);
+  }
+
   _render(data) {
     this._data = data;
     // render cart div and hide menu and header
     this._renderCart();
+    if (this._data.length === 0) this._renderMsg();
     // add buy btn
     this._renderBuyBtn();
     //render cart data
     this._renderCartItems();
-    //
-    const cancelBtn = document.querySelectorAll("#cancelBtn");
-    console.log(cancelBtn);
+
+    // const decreaseButtons = document.querySelectorAll(".decreaseBtn");
+    // const increaseButtons = document.querySelectorAll(".increaseBtn");
+  }
+  addHandlerCancelItem(handler) {
+    const cancelButtons = document.querySelectorAll(".cancelBtn");
+    cancelButtons.forEach((btn) => btn.addEventListener("click", handler));
   }
 
   _renderCart() {
@@ -28,30 +38,36 @@ class CartView {
     this._renderCart();
   }
 
-  _clearDiv(div) {
-    div.innerHTML = "";
+  _renderMsg() {
+    this._childElement.innerHTML = "";
+    const markup = `
+      <div class="emptyMsg_block">
+          <img src="./src/images and icons/icons8-shopping-cart-64.png" alt="">
+          <p>Your cart is empty! Go get something good you deserve it 😉</p>
+        </div>
+    `;
+    this._childElement.insertAdjacentHTML("afterBegin", markup);
   }
 
-  _renderError() {
-    // render menu
-    // this._clearParent;
-    alert(this._errorMsg);
-  }
   _renderBuyBtn() {
     // rending btn if cart contains item
+    const btn = document.querySelector("#buyBtn");
     if (this._data.length > 0) {
-      const btn = document.querySelector("#buyBtn");
       btn.innerHTML = `Buy [${this._data.length} item]`;
       btn.classList.remove("hidden");
     }
+    if (this._data.length === 0) {
+      btn.classList.add("hidden");
+    }
   }
 
-  _renderCartItems() {
-    this._clearDiv(this._childElement);
-    this._data.forEach((item) => {
+  _renderCartItems(data = this._data) {
+    this._childElement.innerHTML = "";
+    data.forEach((item) => {
       //cart item div
       const itemDiv = document.createElement("div");
       itemDiv.classList.add("cart_item");
+      itemDiv.setAttribute("data-id", `${item.id}`);
 
       // inside elements
       // 1.title
@@ -73,7 +89,6 @@ class CartView {
       // 1.decrease button
       const decreaseBtn = document.createElement("button");
       decreaseBtn.classList.add("btn", "decreaseBtn");
-      decreaseBtn.setAttribute("id", "decreaseBtn");
       const img1 = document.createElement("img");
       img1.src = `./src/images and icons/icons8-minus-24.png`;
       img1.style.width = "20px";
@@ -89,7 +104,6 @@ class CartView {
       // 3.increase button
       const increaseBtn = document.createElement("button");
       increaseBtn.classList.add("btn", "increaseBtn");
-      increaseBtn.setAttribute("id", "increaseBtn");
       const img2 = document.createElement("img");
       img2.src = `./src/images and icons/icons8-plus-math-26.png`;
       img2.style.width = "20px";
@@ -100,8 +114,7 @@ class CartView {
 
       // 4 cancel button
       const cancelBtn = document.createElement("button");
-      cancelBtn.classList.add("btn");
-      cancelBtn.setAttribute("id", "cancelBtn");
+      cancelBtn.classList.add("btn", "cancelBtn");
       cancelBtn.innerHTML = `Cancel Item`;
       itemDiv.appendChild(cancelBtn);
 

@@ -21,8 +21,8 @@ body {
   background: #000000;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
-  background: linear-gradient(to left, #2c2b2b, #000000);
+  background: -webkit-gradient(linear, right top, left top, from(#3d3939), to(#000000));
+  background: linear-gradient(to left, #3d3939, #000000);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -235,8 +235,8 @@ body {
   outline: none;
 }
 
-.cart__div #cart_list .cart_item .item_quantity_box #decreaseBtn,
-.cart__div #cart_list .cart_item .item_quantity_box #increaseBtn {
+.cart__div #cart_list .cart_item .item_quantity_box .decreaseBtn,
+.cart__div #cart_list .cart_item .item_quantity_box .increaseBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -254,13 +254,13 @@ body {
   color: #e8eff0;
 }
 
-.cart__div #cart_list .cart_item .item_quantity_box #decreaseBtn:hover,
-.cart__div #cart_list .cart_item .item_quantity_box #increaseBtn:hover {
+.cart__div #cart_list .cart_item .item_quantity_box .decreaseBtn:hover,
+.cart__div #cart_list .cart_item .item_quantity_box .increaseBtn:hover {
   cursor: pointer;
   background-color: gainsboro;
 }
 
-.cart__div #cart_list .cart_item #cancelBtn {
+.cart__div #cart_list .cart_item .cancelBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -280,7 +280,7 @@ body {
   background-color: #c52a2a;
 }
 
-.cart__div #cart_list .cart_item #cancelBtn:hover {
+.cart__div #cart_list .cart_item .cancelBtn:hover {
   cursor: pointer;
   background-color: #9b0707;
 }
@@ -363,8 +363,8 @@ body {
   background: #000000;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
-  background: linear-gradient(to left, #2c2b2b, #000000);
+  background: -webkit-gradient(linear, right top, left top, from(#3d3939), to(#000000));
+  background: linear-gradient(to left, #3d3939, #000000);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -390,8 +390,8 @@ header {
   background: #000000;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
-  background: linear-gradient(to left, #2c2b2b, #000000);
+  background: -webkit-gradient(linear, right top, left top, from(#3d3939), to(#000000));
+  background: linear-gradient(to left, #3d3939, #000000);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #e8eff0;
   border: none;
@@ -431,8 +431,6 @@ header nav .cart__container {
   width: 20%;
   border-radius: 10px;
   padding: 5px 2%;
-  -webkit-transition: all 1s ease-in;
-  transition: all 1s ease-in;
 }
 
 header nav .cart__container img {
@@ -559,12 +557,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #000000;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, right top, left top, from(#2c2b2b), to(#000000));
-  background: linear-gradient(to left, #2c2b2b, #000000);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 main h2 {

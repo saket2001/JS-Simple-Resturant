@@ -70,8 +70,15 @@ setTimeout(function () {
       // pushing to state model
       model.state.cart.push(cartObj);
       console.log(model.state.cart);
+
+      // adding new cart logo
+      document.querySelector(".cart__btn").src =
+        "./src/images and icons/icons8-basket-64.png";
+      document.querySelector(".cart__btn").style.width = "30px";
+      // change add to cart btn
+      e.target.innerHTML = "Added";
       // sending to render
-      CartView._renderCartItems(model.state.cart);
+      CartView._render(model.state.cart);
     });
   });
 }, 2000);

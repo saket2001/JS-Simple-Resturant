@@ -124,7 +124,7 @@
                 }
             }
 
-            #cancelBtn {
+            .cancelBtn {
                 @include flex(column);
                 padding: 2%;
                 color: $font-light;

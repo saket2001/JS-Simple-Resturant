@@ -5,7 +5,7 @@ class CartView {
 
   _init(data) {
     this._data = data;
-    console.log(this._data);
+    // console.log(this._data);
   }
 
   _render(data) {
@@ -18,12 +18,22 @@ class CartView {
     //render cart data
     this._renderCartItems();
 
-    // const decreaseButtons = document.querySelectorAll(".decreaseBtn");
+    //
     // const increaseButtons = document.querySelectorAll(".increaseBtn");
   }
+
   addHandlerCancelItem(handler) {
     const cancelButtons = document.querySelectorAll(".cancelBtn");
     cancelButtons.forEach((btn) => btn.addEventListener("click", handler));
+  }
+
+  addHandlerDecreaseItem(handler) {
+    const decreaseButtons = document.querySelectorAll(".decreaseBtn");
+    decreaseButtons.forEach((btn) => btn.addEventListener("click", handler));
+  }
+  addHandlerIncreaseItem(handler) {
+    const increaseButtons = document.querySelectorAll(".increaseBtn");
+    increaseButtons.forEach((btn) => btn.addEventListener("click", handler));
   }
 
   _renderCart() {

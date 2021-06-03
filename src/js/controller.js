@@ -78,6 +78,45 @@ const cancelItem = function (e) {
   }
 };
 
+const updateQuantity = function (e) {
+  // console.log(e.target);
+  // get quantity of item to be changed
+  const btnClicked = e.target.closest("button");
+  const parent = e.target.closest(".cart_item");
+  const itemId = parent.getAttribute("data-id");
+  const curQuantity = parent
+    .querySelector(".item_quantity_box")
+    .querySelector("input")
+    .getAttribute("placeholder");
+
+  if (btnClicked.classList.contains("decreaseBtn")) {
+    model.state.cart.forEach((item) => {
+      if (item.id === itemId) {
+        if (item.quantity > 1) {
+          item.quantity = +curQuantity - 1;
+          // item.price = ` ₹ ${+item.price.slice(1) - +item.q}`;
+        }
+      }
+    });
+  }
+  if (btnClicked.classList.contains("increaseBtn")) {
+    model.state.cart.forEach((item) => {
+      if (item.id === itemId) {
+        item.quantity = +curQuantity + 1;
+        // item.price = `₹ ${+item.price.slice(1) * +item.quantity} `;
+      }
+    });
+  }
+
+  // rendering other cart items
+  CartView._init(model.state.cart);
+  CartView._renderCartItems(model.state.cart);
+
+  if (model.state.cart.length > 0) {
+    init();
+  }
+};
+
 ////////////////////////////////
 // for loading of data
 window.addEventListener("load", controlRender);
@@ -88,13 +127,6 @@ cartBtn.addEventListener("click", function () {
   CartView._render(model.state.cart);
   init();
 });
-
-// decreaseButtons.forEach((btn) =>
-//   btn.addEventListener("click", this.decreaseItem)
-// );
-// increaseButtons.forEach((btn) =>
-//   btn.addEventListener("click", this.increaseItem)
-// );
 
 backBtn.addEventListener("click", function () {
   // close cart
@@ -114,4 +146,6 @@ setTimeout(function () {
 
 const init = function () {
   CartView.addHandlerCancelItem(cancelItem);
+  CartView.addHandlerDecreaseItem(updateQuantity);
+  CartView.addHandlerIncreaseItem(updateQuantity);
 };

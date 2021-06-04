@@ -5,7 +5,6 @@ import CartView from "./CartView.js";
 const cartBtn = document.querySelector(".cart__container");
 const backBtn = document.querySelector("#backBtn");
 
-let addToCartButtons;
 ////////////////////////////////////
 
 const controlRender = async function () {
@@ -13,6 +12,7 @@ const controlRender = async function () {
     // render data
     MenuView._render(model.state.result?.menus[0].menu_sections);
     MenuView._renderOtherData(model.state.result);
+    MenuView.addHandlerToAddButtons(controlAddToCart);
   } catch (err) {
     console.error(err);
   }
@@ -29,18 +29,36 @@ const controlAddToCart = function (e) {
       .querySelector(".menu__left")
       .querySelector(".menu__title").innerHTML;
     const item_price = parent.querySelector(".menu__right").innerHTML;
-    // creating cart obj
-    const cartObj = {
-      id: item_id,
-      name: item_name,
-      fixedPrice: item_price,
-      price: item_price,
-      quantity: 1,
-    };
 
-    // pushing to state model
-    model.state.cart.push(cartObj);
-    // console.log(model.state.cart);
+    // to check if item already exists in cart
+    let flag = "";
+    model.state.cart.forEach((cartItem) => {
+      if (item_id === cartItem.id) {
+        console.log(cartItem);
+        cartItem.quantity++;
+        cartItem.price = `₹
+          ${+cartItem.price.slice(1) + +cartItem.fixedPrice.slice(1)}`;
+        flag = true;
+      } else {
+        flag = false;
+      }
+    });
+
+    console.log(flag);
+    if (!flag) {
+      // creating cart obj
+      const cartObj = {
+        id: item_id,
+        name: item_name,
+        fixedPrice: item_price,
+        price: item_price,
+        quantity: 1,
+      };
+
+      // pushing to state model
+      model.state.cart.push(cartObj);
+      calcTotal();
+    }
 
     // adding new cart logo
     cartBtn.querySelector(".cart__btn").src =
@@ -51,6 +69,11 @@ const controlAddToCart = function (e) {
     e.target.innerHTML = "Added";
     // making that un clickable
     e.target.setAttribute("disabled", "true");
+
+    setTimeout(() => {
+      e.target.innerHTML = "Add To Cart";
+      e.target.removeAttribute("disabled");
+    }, 2000);
   } catch (err) {
     console.error(err);
   }
@@ -71,12 +94,12 @@ const cancelItem = function (e) {
   model.state.cart.splice(itemId, 1);
 
   // rendering other cart items
-  CartView._init(model.state.cart);
-  CartView._renderCartItems(model.state.cart);
-  CartView._renderBuyBtn();
-  CartView.addHandlerSubTotal(calcTotal);
-  CartView._renderMsg();
+  // load this new data to view
+  CartView._render(model.state.cart);
+  // calc new total
+  calcTotal();
 
+  // change cart icon
   if (model.state.cart.length === 0)
     document.querySelector(".cart_total p").innerHTML = "";
   cartBtn.querySelector(".cart__btn").src =
@@ -118,9 +141,8 @@ const updateQuantity = function (e) {
     });
   }
 
-  // rendering other cart items
-  CartView._init(model.state.cart);
-  CartView._renderCartItems(model.state.cart);
+  // rendering other cart item again
+  CartView._render(model.state.cart);
 
   if (model.state.cart.length > 0) {
     init();
@@ -157,16 +179,17 @@ const renderFinalMsg = function () {
       // call cart view init
       CartView._init(model.state.cart);
       CartView._renderMsg();
-    }, 5000);
-  }, 2000);
+    }, 4000);
+  }, 500);
 };
 ////////////////////////////////
 // for loading of data
 window.addEventListener("load", controlRender);
 
-// for cart
+// for viewing cart
 cartBtn.addEventListener("click", function () {
   // render cart
+  CartView._renderCart();
   CartView._render(model.state.cart);
   init();
 });
@@ -176,18 +199,9 @@ backBtn.addEventListener("click", function () {
   CartView._unRenderCart();
 });
 
-//for add to cart buttons
-setTimeout(function () {
-  // converting html collection to array
-  addToCartButtons = Array.from(document.querySelectorAll(".addToCartBtn"));
-
-  // adding event to all buttons
-  addToCartButtons.forEach((btn) => {
-    btn.addEventListener("click", controlAddToCart);
-  });
-}, 2000);
-
+// this adds event listener
 const init = function () {
+  MenuView.addHandlerToAddButtons(controlAddToCart);
   CartView.addHandlerCancelItem(cancelItem);
   CartView.addHandlerDecreaseItem(updateQuantity);
   CartView.addHandlerIncreaseItem(updateQuantity);

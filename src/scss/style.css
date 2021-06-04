@@ -483,16 +483,17 @@ header #company__info__container .company__info {
 }
 
 header #company__info__container .name {
-  font-size: 22px;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
-header #company__info__container .dishes, header #company__info__container .address {
+header #company__info__container .dishes, header #company__info__container .address, header #company__info__container .timing {
+  font-size: 0.8rem;
   font-weight: 400;
   color: #e4d7d7;
 }
 
-header #company__info__container .address {
+header #company__info__container .timing {
   padding-bottom: 2%;
 }
 
@@ -529,7 +530,7 @@ header #company__info__container .address {
     width: 10%;
   }
   header nav #cart__container img {
-    width: 40px;
+    width: 2.3rem;
   }
   header #company__info__container {
     width: 100%;
@@ -555,7 +556,10 @@ header #company__info__container .address {
     padding: 5px 2%;
   }
   header #company__info__container .name {
-    font-size: 25px;
+    font-size: 1.6rem;
+  }
+  header #company__info__container .dishes, header #company__info__container .address, header #company__info__container .timing {
+    font-size: 1rem;
   }
 }
 

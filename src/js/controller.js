@@ -30,35 +30,17 @@ const controlAddToCart = function (e) {
       .querySelector(".menu__title").innerHTML;
     const item_price = parent.querySelector(".menu__right").innerHTML;
 
-    // to check if item already exists in cart
-    let flag = "";
-    model.state.cart.forEach((cartItem) => {
-      if (item_id === cartItem.id) {
-        console.log(cartItem);
-        cartItem.quantity++;
-        cartItem.price = `₹
-          ${+cartItem.price.slice(1) + +cartItem.fixedPrice.slice(1)}`;
-        flag = true;
-      } else {
-        flag = false;
-      }
-    });
+    // creating cart obj
+    const cartObj = {
+      id: item_id,
+      name: item_name,
+      fixedPrice: item_price,
+      price: item_price,
+      quantity: 1,
+    };
 
-    console.log(flag);
-    if (!flag) {
-      // creating cart obj
-      const cartObj = {
-        id: item_id,
-        name: item_name,
-        fixedPrice: item_price,
-        price: item_price,
-        quantity: 1,
-      };
-
-      // pushing to state model
-      model.state.cart.push(cartObj);
-      calcTotal();
-    }
+    // pushing to state model
+    model.state.cart.push(cartObj);
 
     // adding new cart logo
     cartBtn.querySelector(".cart__btn").src =
@@ -69,11 +51,6 @@ const controlAddToCart = function (e) {
     e.target.innerHTML = "Added";
     // making that un clickable
     e.target.setAttribute("disabled", "true");
-
-    setTimeout(() => {
-      e.target.innerHTML = "Add To Cart";
-      e.target.removeAttribute("disabled");
-    }, 2000);
   } catch (err) {
     console.error(err);
   }
@@ -176,10 +153,11 @@ const renderFinalMsg = function () {
     setTimeout(function () {
       // remove msg
       totalFigDiv.innerHTML = "";
+      totalFigDiv.style.color = "black";
       // call cart view init
       CartView._init(model.state.cart);
       CartView._renderMsg();
-    }, 4000);
+    }, 3000);
   }, 500);
 };
 ////////////////////////////////

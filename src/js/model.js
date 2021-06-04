@@ -1,14 +1,13 @@
 // data
 export const state = {
   result: {
-    restaurant_name: "Beach Side Coffee",
+    restaurant_name: "Coffee Point",
     restaurant_phone: "(212) 228-2333",
-    hours: "Daily: 11am-12pm",
+    hours: "Daily: 9am-10pm",
     price_range: "$$",
     restaurant_id: 4072702673999819,
-    cuisines: "Coffee Sandwhich Pastry indian food",
-    address:
-      "Shop no 231, Opposite K Star mall, chembur station road, chembur(e),mumbai",
+    cuisines: "Coffee, Sandwhich, Pastry, Indian food",
+    address: "Shop no 231, Opposite K Star Mall, Chembur(E), Mumbai",
     menus: [
       {
         menu_name: "Main",

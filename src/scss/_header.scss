@@ -51,17 +51,22 @@ header {
         }
 
         .name {
-            font-size: 22px;
+            font-size: 1.4rem;
             font-weight: 700;
         }
 
         .dishes {
+            font-size: 0.8rem;
             font-weight: 400;
             color: $font-dark;
         }
 
         .address {
             @extend .dishes;
+        }
+
+        .timing {
+            @extend .address;
             padding-bottom: 2%;
         }
 
@@ -91,7 +96,7 @@ header {
                 width: 10%;
 
                 img {
-                    width: 40px;
+                    width: 2.3rem;
                 }
 
             }
@@ -111,8 +116,13 @@ header {
             }
 
             .name {
-                font-size: 25px;
+                font-size: 1.6rem;
             }
+
+            .dishes {
+                font-size: 1rem;
+            }
+
         }
 
     }

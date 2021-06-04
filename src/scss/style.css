@@ -30,7 +30,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background-color: #e8eff0;
+  background-color: #f8eaea;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,8 +103,8 @@ body {
 }
 
 .cart__div #buyBtn {
-  width: 90%;
-  margin: 2%;
+  width: 95%;
+  margin: 1% 2%;
   padding: 2%;
   font-size: 1rem;
   color: #e8eff0;
@@ -114,6 +114,29 @@ body {
 .cart__div #buyBtn:hover {
   cursor: pointer;
   background-color: #9b0707;
+}
+
+.cart__div .cart_total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 2% auto;
+}
+
+.cart__div .cart_total p {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .cart__div #cart_list {
@@ -134,12 +157,13 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   width: 100%;
-  margin: 5% 0;
+  margin: 3% 0;
   padding: 2%;
 }
 
 .cart__div #cart_list .emptyMsg_block {
   width: inherit;
+  padding: 1%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,13 +180,11 @@ body {
 }
 
 .cart__div #cart_list .cart_item {
-  -webkit-box-shadow: 6px 6px 12px #e5dddd, -6px -6px 12px #f9efef;
-          box-shadow: 6px 6px 12px #e5dddd, -6px -6px 12px #f9efef;
   width: 95%;
   padding: 2%;
   margin: 1% 2%;
   background-color: #e8eff0;
-  border: 1px solid #e4dada;
+  border: 1px solid #c2b8b8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,12 +328,13 @@ body {
     padding: 1%;
   }
   .cart__div #buyBtn {
-    width: 60%;
+    width: 45%;
     padding: 1% 2%;
+    margin: 1%;
     font-size: 1rem;
   }
   .cart__div #cart_list {
-    margin: 3% 0;
+    margin: 1% 0;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -320,7 +343,9 @@ body {
     font-size: 1.3rem;
   }
   .cart__div #cart_list .cart_item {
-    width: 65%;
+    width: 45%;
+    padding: 1%;
+    margin: 1%;
   }
   .cart__div #cart_list .cart_item .item_title {
     font-size: 1.4rem;
@@ -387,12 +412,6 @@ header {
       -ms-flex-pack: left;
           justify-content: left;
   padding: 1%;
-  background: #000000;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, right top, left top, from(#3d3939), to(#000000));
-  background: linear-gradient(to left, #3d3939, #000000);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #e8eff0;
   border: none;
 }

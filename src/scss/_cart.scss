@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     overflow: auto;
-    background-color: $font-light;
+    background-color: rgb(248, 234, 234);
     @include flex(column);
     justify-content: flex-start;
 
@@ -34,8 +34,8 @@
     }
 
     #buyBtn {
-        width: 90%;
-        margin: 2%;
+        width: 95%;
+        margin: 1% 2%;
         padding: 2%;
         font-size: 1rem;
         color: $font-light;
@@ -47,26 +47,38 @@
         }
     }
 
+    .cart_total {
+        @include flex(column);
+        width: 100%;
+        padding: 2% auto;
+
+        p {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+    }
+
     #cart_list {
         @include flex(column);
         align-items: flex-start;
         width: 100%;
-        margin: 5% 0;
+        margin: 3% 0;
         padding: 2%;
 
         .emptyMsg_block {
             width: inherit;
+            padding: 1%;
             @include flex(row);
         }
 
         .cart_item {
-            box-shadow: 6px 6px 12px #e5dddd,
-                -6px -6px 12px #f9efef;
+            // box-shadow: 6px 6px 12px #e5dddd,
+            //     -6px -6px 12px #f9efef;
             width: 95%;
             padding: 2%;
             margin: 1% 2%;
             background-color: $font-light;
-            border: 1px solid rgb(228, 218, 218);
+            border: 1px solid rgb(194, 184, 184);
             @include flex(column);
             align-items: flex-start;
             border-radius: 8px;
@@ -155,7 +167,6 @@
 
 @media screen and(min-width:900px) {
     .cart__div {
-
         nav {
             .title {
                 width: auto;
@@ -170,13 +181,14 @@
         }
 
         #buyBtn {
-            width: 60%;
+            width: 45%;
             padding: 1% 2%;
+            margin: 1%;
             font-size: 1rem;
         }
 
         #cart_list {
-            margin: 3% 0;
+            margin: 1% 0;
             align-items: center;
 
             .emptyMsg_block {
@@ -184,7 +196,9 @@
             }
 
             .cart_item {
-                width: 65%;
+                width: 45%;
+                padding: 1%;
+                margin: 1%;
 
                 .item_title {
                     font-size: 1.4rem;

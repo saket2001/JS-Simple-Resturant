@@ -7,8 +7,6 @@ header {
     @include flex(column);
     justify-content: left;
     padding: 1%;
-    // background-color: $headerBg;
-    @include gradient;
     color: $font-light;
     border: none;
 

@@ -33,6 +33,7 @@ const controlAddToCart = function (e) {
     const cartObj = {
       id: item_id,
       name: item_name,
+      fixedPrice: item_price,
       price: item_price,
       quantity: 1,
     };
@@ -48,6 +49,8 @@ const controlAddToCart = function (e) {
 
     // change add to cart btn
     e.target.innerHTML = "Added";
+    // making that un clickable
+    e.target.setAttribute("disabled", "true");
   } catch (err) {
     console.error(err);
   }
@@ -66,12 +69,13 @@ const cancelItem = function (e) {
 
   // now removing that item with id from cart
   model.state.cart.splice(itemId, 1);
-  console.log("done");
 
   // rendering other cart items
   CartView._init(model.state.cart);
   CartView._renderCartItems(model.state.cart);
   CartView._renderBuyBtn();
+  CartView.addHandlerSubTotal(calcTotal);
+  CartView._renderMsg();
 
   if (model.state.cart.length > 0) {
     init();
@@ -94,7 +98,7 @@ const updateQuantity = function (e) {
       if (item.id === itemId) {
         if (item.quantity > 1) {
           item.quantity = +curQuantity - 1;
-          // item.price = ` ₹ ${+item.price.slice(1) - +item.q}`;
+          item.price = `₹ ${+item.price.slice(1) - +item.fixedPrice.slice(1)}`;
         }
       }
     });
@@ -103,7 +107,7 @@ const updateQuantity = function (e) {
     model.state.cart.forEach((item) => {
       if (item.id === itemId) {
         item.quantity = +curQuantity + 1;
-        // item.price = `₹ ${+item.price.slice(1) * +item.quantity} `;
+        item.price = `₹ ${+item.price.slice(1) + +item.fixedPrice.slice(1)}`;
       }
     });
   }
@@ -117,6 +121,39 @@ const updateQuantity = function (e) {
   }
 };
 
+const calcTotal = function () {
+  if (model.state.cart.length > 0) {
+    // getting all cart item prices
+    const totalArray = model.state.cart.map((item) => +item.price.slice(1));
+    // calc total
+    const total = totalArray.reduce((total, cur) => +total + +cur);
+    // rendering total
+    const totalFigDiv = document.querySelector(".cart_total p");
+    totalFigDiv.innerHTML = `Sub Total- ${total} ₹`;
+    // after 3 sec clear all
+  }
+};
+
+const renderFinalMsg = function () {
+  setTimeout(function () {
+    // clear cart item
+    model.state.cart = [];
+    CartView._childElement.innerHTML = "";
+    // clear buy btn
+    document.querySelector("#buyBtn").classList.add("hidden");
+    // clear total
+    const totalFigDiv = document.querySelector(".cart_total p");
+    totalFigDiv.style.color = "red";
+    totalFigDiv.innerHTML = "Purchased Completed ✔";
+    setTimeout(function () {
+      // remove msg
+      totalFigDiv.innerHTML = "";
+      // call cart view init
+      CartView._init(model.state.cart);
+      CartView._renderMsg();
+    }, 5000);
+  }, 2000);
+};
 ////////////////////////////////
 // for loading of data
 window.addEventListener("load", controlRender);
@@ -148,4 +185,6 @@ const init = function () {
   CartView.addHandlerCancelItem(cancelItem);
   CartView.addHandlerDecreaseItem(updateQuantity);
   CartView.addHandlerIncreaseItem(updateQuantity);
+  calcTotal();
+  CartView.addHandlerSubTotal(renderFinalMsg);
 };

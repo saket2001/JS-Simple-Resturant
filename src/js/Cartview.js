@@ -5,21 +5,20 @@ class CartView {
 
   _init(data) {
     this._data = data;
-    // console.log(this._data);
   }
 
   _render(data) {
     this._data = data;
     // render cart div and hide menu and header
     this._renderCart();
+    // render empty msg
     if (this._data.length === 0) this._renderMsg();
-    // add buy btn
-    this._renderBuyBtn();
-    //render cart data
-    this._renderCartItems();
-
-    //
-    // const increaseButtons = document.querySelectorAll(".increaseBtn");
+    else {
+      // add buy btn
+      this._renderBuyBtn();
+      //render cart data
+      this._renderCartItems();
+    }
   }
 
   addHandlerCancelItem(handler) {
@@ -35,6 +34,10 @@ class CartView {
     const increaseButtons = document.querySelectorAll(".increaseBtn");
     increaseButtons.forEach((btn) => btn.addEventListener("click", handler));
   }
+  addHandlerSubTotal(handler) {
+    const btn = document.querySelector("#buyBtn");
+    btn.addEventListener("click", handler);
+  }
 
   _renderCart() {
     // for cart button
@@ -49,14 +52,16 @@ class CartView {
   }
 
   _renderMsg() {
-    this._childElement.innerHTML = "";
-    const markup = `
+    if (this._data.length === 0) {
+      this._childElement.innerHTML = "";
+      const markup = `
       <div class="emptyMsg_block">
           <img src="./src/images and icons/icons8-shopping-cart-64.png" alt="">
           <p>Your cart is empty! Go get something good you deserve it 😉</p>
         </div>
     `;
-    this._childElement.insertAdjacentHTML("afterBegin", markup);
+      this._childElement.insertAdjacentHTML("afterBegin", markup);
+    }
   }
 
   _renderBuyBtn() {
@@ -131,7 +136,6 @@ class CartView {
       this._childElement.appendChild(itemDiv);
     });
   }
-  _loadCart() {}
 }
 
 export default new CartView();

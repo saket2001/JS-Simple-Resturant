@@ -80,7 +80,7 @@ const cancelItem = function (e) {
   if (model.state.cart.length === 0)
     document.querySelector(".cart_total p").innerHTML = "";
   cartBtn.querySelector(".cart__btn").src =
-    "./src/images and icons/icons8-shopping-cart.svg";
+    "./src/images and icons/shopping-cart.svg";
   cartBtn.querySelector(".cart__btn").style.width = "25px";
 
   if (model.state.cart.length > 0) {

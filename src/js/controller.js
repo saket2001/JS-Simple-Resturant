@@ -77,6 +77,9 @@ const cancelItem = function (e) {
   CartView.addHandlerSubTotal(calcTotal);
   CartView._renderMsg();
 
+  if (model.state.cart.length === 0)
+    document.querySelector(".cart_total p").innerHTML = "";
+
   if (model.state.cart.length > 0) {
     init();
   }

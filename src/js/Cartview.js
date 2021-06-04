@@ -4,16 +4,19 @@ class CartView {
   _data;
 
   _init(data) {
+    // stores data in this view
     this._data = data;
   }
 
   _render(data) {
-    this._data = data;
+    this._init(data);
     // render cart div and hide menu and header
-    this._renderCart();
     // render empty msg
-    if (this._data.length === 0) this._renderMsg();
-    else {
+    if (this._data.length === 0) {
+      this._renderMsg();
+      this._renderBuyBtn();
+    }
+    if (this._data.length > 0) {
       // add buy btn
       this._renderBuyBtn();
       //render cart data

@@ -10,30 +10,19 @@ class MenuView {
   _render(data) {
     this._data = data;
     // render menu
-    this._clearParent;
-    this._renderMenu1();
+    this._renderMenu();
+    this.addHandlerToAddButtons();
   }
+
   _renderOtherData(data) {
     // render other details
     this._hotelName.innerHTML = data.restaurant_name;
     this._hotelItems.innerHTML = data.cuisines;
     this._hotelAddress.innerHTML = data.address;
     this._hotelTiming.innerHTML = data.hours;
-
-    // render menu
-    this._clearParent;
-    // this._renderMenu();
-  }
-  _clearParent() {
-    this._parentElement.innerHTML = "";
   }
 
-  _renderError() {
-    // render menu
-    this._clearParent;
-    alert(this._errorMsg);
-  }
-  _renderMenu1() {
+  _renderMenu() {
     this._data.forEach((row) => {
       // details
       const details = document.createElement("details");
@@ -99,47 +88,15 @@ class MenuView {
     });
   }
 
-  _renderMenu() {
-    this._data.forEach((row) => {
-      // console.log(row);
-      const markup = `
-            <details open>
-                <summary>
-                   ${row.section_name}
-                </summary>
-                <div class="menu__list">
-                ${row.menu_items
-                  .map((item) => {
-                    return `
-                    <div class="menu__item" data-id="${item.id}">
-                        <div class="menu__left">
-                            <div class="menu__title">
-                                ${item.name}
-                            </div>
-                            <div class="menu__description">
-                                  ${
-                                    item.description
-                                      ? item.description
-                                      : "No Description available"
-                                  }
-                            </div>
-                            <button class="btn addToCartBtn">
-                                Add to cart
-                            </button>
-                        </div>
-                        <div class="menu__right">
-                            ${item.price}
-                        </div>
-                    </div>
-                  `;
-                  })
-                  .join("")}
-                </div>
-           </details>
-           </br>
-        `;
+  addHandlerToAddButtons(handler) {
+    // selecting all
+    const addToCartButtons = Array.from(
+      document.querySelectorAll(".addToCartBtn")
+    );
 
-      this._parentElement.insertAdjacentHTML("beforeend", markup);
+    // adding event to all buttons
+    addToCartButtons.forEach((btn) => {
+      btn.addEventListener("click", handler);
     });
   }
 }
